@@ -8,7 +8,6 @@ export const formSchema = z.object({
         .string()
         .url()
         .refine(async (url) => {
-            return false;
             try {
                 const res = await fetch(url, { method: "HEAD" });
                 const contentType = res.headers.get("content-type");
